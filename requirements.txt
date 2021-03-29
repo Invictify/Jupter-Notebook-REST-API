@@ -48,7 +48,7 @@ prompt-toolkit==3.0.5
 ptyprocess==0.6.0
 pydantic==1.4
 pyee==7.0.1
-Pygments==2.6.1
+Pygments==2.7.4
 pyppeteer==0.0.25
 pyquery==1.4.1
 pyrsistent==0.16.0
