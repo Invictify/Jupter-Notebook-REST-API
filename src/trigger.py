@@ -4,7 +4,7 @@ from nbparameterise import (
     extract_parameters, replace_definitions, parameter_values
 )
 
-def trigger(notebook_filename='chp-traffic.ipynb', params={}):
+def trigger(notebook_filename='hello.ipynb', params={}):
     with open(notebook_filename) as f:
         nb = nbformat.read(f, as_version=4)
 
