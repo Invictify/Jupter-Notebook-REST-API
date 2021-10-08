@@ -14,7 +14,7 @@ NOTEBOOKS_DIR = BASE_DIR + '/notebooks'
 async def read_root():
     return {"Hello": "World"}
 
-@app.post("/trigger/{filepath:path}")
+@app.post("/notebook/{filepath:path}")
 async def read_item(filepath, request: Request):
     filepath = os.path.join(NOTEBOOKS_DIR, filepath)
     ep = trigger(notebook_filename=filepath, params=request.query_params)

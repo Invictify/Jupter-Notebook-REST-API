@@ -35,12 +35,12 @@ chmod +x run.sh
 ./run.sh
 ```
 
-## Trigger a notebook.
-With the server running, trigger notebook (relative path) like `notebooks/scrape.ipynb`
+## Run a notebook.
+With the server running, run notebook file like `scrape.ipynb`
 
 ```python
 import requests
-r = requests.post("http://localhost:8000/trigger/notebooks/scrape.ipynb")
+r = requests.post("http://localhost:8000/notebook/scrape.ipynb")
 print(r.json())
 ```
 
