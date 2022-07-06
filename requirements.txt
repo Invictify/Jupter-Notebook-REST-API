@@ -30,7 +30,7 @@ jupyter==1.0.0
 jupyter-client==6.1.2
 jupyter-console==6.1.0
 jupyter-core==4.6.3
-lxml==4.5.0
+lxml==4.9.1
 MarkupSafe==1.1.1
 mistune==0.8.4
 nbconvert==5.6.1
