@@ -20,7 +20,7 @@ pipenv shell
 
 
 ### Add your notebook(s) to "src/notebooks"
-There's an example notebook already in there called `scrape.ipynb`. 
+There's an example notebook already in there called `hello.ipynb` and `scrape.ipynb`. 
 
 
 ### Run locally
@@ -35,12 +35,20 @@ chmod +x run.sh
 ./run.sh
 ```
 
-## Trigger a notebook.
-With the server running, trigger notebook (relative path) like `notebooks/scrape.ipynb`
+## Run a notebook.
+With the server running, run notebook file like `scrape.ipynb`
 
 ```python
 import requests
-r = requests.post("http://localhost:8000/trigger/notebooks/scrape.ipynb")
+r = requests.post("http://localhost:8000/notebook/scrape.ipynb")
+print(r.json())
+```
+
+You can also change the variables in the notebook from the parameter. For example;
+
+```python
+import requests
+r = requests.post("http://localhost:8000/notebook/scrape.ipynb?start_year=2021&years_ago=7")
 print(r.json())
 ```
 

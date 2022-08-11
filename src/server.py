@@ -1,6 +1,8 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from pprint import pprint
+
 app = FastAPI()
+
 import inspect
 import os
 
@@ -8,17 +10,17 @@ from .trigger import trigger
 
 filename     = inspect.getframeinfo(inspect.currentframe()).filename
 BASE_DIR     = os.path.dirname(os.path.abspath(filename))
+NOTEBOOKS_DIR = BASE_DIR + '/notebooks'
 
 @app.get("/")
 async def read_root():
     return {"Hello": "World"}
 
-# @app.get("/trigger/{filepath:path}")
-@app.post("/trigger/{filepath:path}")
-async def read_item(filepath):
-    filepath = os.path.join(BASE_DIR, filepath)
-    ep = trigger(notebook_filename=filepath)
-    # data = vars(ep)
+@app.get("/notebook/{filepath:path}")
+async def read_item(filepath, request: Request):
+    filepath = os.path.join(NOTEBOOKS_DIR, filepath)
+    ep = trigger(notebook_filename=filepath, params=request.query_params)
+    
     cells = ep[0]['cells']
     all_outputs = []
     for i, cell in enumerate(cells):

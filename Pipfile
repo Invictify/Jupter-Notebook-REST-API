@@ -9,6 +9,7 @@ verify_ssl = true
 jupyter = "*"
 fastapi = "*"
 nbconvert = "*"
+nbparameterise = "*"
 uvicorn = "*"
 pandas = "*"
 requests = "*"
