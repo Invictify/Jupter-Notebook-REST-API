@@ -1,6 +1,8 @@
 from fastapi import FastAPI, Request
 from pprint import pprint
+
 app = FastAPI()
+
 import inspect
 import os
 
@@ -14,7 +16,7 @@ NOTEBOOKS_DIR = BASE_DIR + '/notebooks'
 async def read_root():
     return {"Hello": "World"}
 
-@app.post("/notebook/{filepath:path}")
+@app.get("/notebook/{filepath:path}")
 async def read_item(filepath, request: Request):
     filepath = os.path.join(NOTEBOOKS_DIR, filepath)
     ep = trigger(notebook_filename=filepath, params=request.query_params)
